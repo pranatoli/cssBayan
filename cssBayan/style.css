@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    max-width: 60%;
+    margin: 0 auto;
+    background: #b5b5b595;
+    padding: 20px;
+}
+
+.accordeon {
+    font-weight: 600;
+    color: #452fa8;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.item__input {
+    visibility: hidden;
+}
+
+.accordeon:hover {
+    color: rgb(50, 50, 50);
+}
+
+.item__lable {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+
+}
+
+.item__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-top: 3px solid #0000004f;
+    padding: 5px;
+}
+
+.content__title {
+    padding: 5px 0;
+}
+
+.open,
+.close {
+    display: none;
+}
+
+.item__img {
+    display: none;
+}
+
+.content__img {
+    max-width: 60%;
+}
+
+.item__input:checked~.item__lable .item__img {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+}
+
+.accordeon:hover .item__input:checked~.item__lable .close,
+.accordeon:hover .item__input:hover~.item__lable .close {
+    display: block;
+}
+
+.accordeon:hover .item__input:checked~.item__lable .open,
+.accordeon:hover .item__input:hover~.item__lable .open {
+    display: none;
+}
+
+.accordeon:hover .item__input~.item__lable .open {
+    display: block;
+}
+
+.item__lable:hover .item__img {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+}
+
+
+@keyframes fadeIn {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (hover: none) {
+    .item__input:checked~.item__lable .close {
+        display: block;
+    }
+
+    .item__input:checked~.item__lable .open {
+        display: none;
+    }
+
+    .item__input~.item__lable .open {
+        display: block;
+    }
+}
+
+@media (320px <=width <=820px) {
+    .wrapper {
+        max-width: 80%;
+    }
+
+    .accordeon {
+        font-size: 16px;
+    }
+}
+
+@media (820px < width <=1024px) {
+    .wrapper {
+        max-width: 70%;
+    }
+
+    .accordeon {
+        font-size: 20px;
+    }
+}
